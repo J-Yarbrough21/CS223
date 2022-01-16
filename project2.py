@@ -32,19 +32,19 @@ score3Entry = ttk.Entry(frame, width=25, textvariable=score3Text).grid(column=1,
 
 ttk.Label(frame, text="Student Full Name").grid(column=3, row=0, sticky=tk.W)
 fullnameText = tk.StringVar()
-fullnameEntry = ttk.Entry(
+fullnameLabel = ttk.Entry(
     frame, width=25, textvariable=fullnameText, state="readonly"
 ).grid(column=4, row=0)
 
 ttk.Label(frame, text="Average Score").grid(column=3, row=2, sticky=tk.W)
 averageText = tk.StringVar()
-averageEntry = ttk.Entry(
+averageLabel = ttk.Entry(
     frame, width=25, textvariable=averageText, state="readonly"
 ).grid(column=4, row=2)
 
 ttk.Label(frame, text="Total Score").grid(column=3, row=4, sticky=tk.W)
 totalText = tk.StringVar()
-totalEntry = ttk.Entry(frame, width=25, textvariable=totalText, state="readonly").grid(
+totalLabel = ttk.Entry(frame, width=25, textvariable=totalText, state="readonly").grid(
     column=4, row=4
 )
 
@@ -57,7 +57,7 @@ def click_button1():
     first = str(fnameText.get)
     last = str(lnameText.get)
     fullname = first + " " + last
-    fullnameText = str(fullname)
+    fullnameText.set(fullname)
 
 
 def click_button2():
