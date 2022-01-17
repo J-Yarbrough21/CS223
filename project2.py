@@ -14,6 +14,7 @@ frame.pack(fill=tk.BOTH, expand=True)
 fnameLabel = ttk.Label(frame, text="Student First Name").grid(column=0, row=0, sticky=tk.W)
 fnameText = tk.StringVar()
 fnameEntry = ttk.Entry(frame, width=25, textvariable=fnameText).grid(column=0, row=2)
+fnameText = tk.StringVar()
 
 lnameLabel = ttk.Label(frame, text="Student Last Name").grid(column=1, row=0, sticky=tk.W)
 lnameText = tk.StringVar()
@@ -44,8 +45,8 @@ score2Text=StringVar()
 score3Text=StringVar()
 
 def click_button1():
-    first = fnameText.get
-    last = lnameText.get
+    first = str(fnameText.get())
+    last = str(lnameText.get())
     fullname = first + " " + last
     fullnameText.set = str(fullname)
     
