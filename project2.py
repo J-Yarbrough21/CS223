@@ -11,15 +11,11 @@ root.title("Average Test Scores-Lab2")
 frame = ttk.Frame(root, padding="10 10 10 10")
 frame.pack(fill=tk.BOTH, expand=True)
 
-fnameLabel = ttk.Label(frame, text="Student First Name").grid(
-    column=0, row=0, sticky=tk.W
-)
+fnameLabel = ttk.Label(frame, text="Student First Name").grid(column=0, row=0, sticky=tk.W)
 fnameText = tk.StringVar()
 fnameEntry = ttk.Entry(frame, width=25, textvariable=fnameText).grid(column=0, row=2)
 
-lnameLabel = ttk.Label(frame, text="Student Last Name").grid(
-    column=1, row=0, sticky=tk.W
-)
+lnameLabel = ttk.Label(frame, text="Student Last Name").grid(column=1, row=0, sticky=tk.W)
 lnameText = tk.StringVar()
 lnameEntry = ttk.Entry(frame, width=25, textvariable=lnameText).grid(column=1, row=2)
 
@@ -35,30 +31,27 @@ score3Label = ttk.Label(frame, text="Score 3").grid(column=0, row=6, sticky=tk.W
 score3Text = tk.StringVar()
 score3Entry = ttk.Entry(frame, width=25, textvariable=score3Text).grid(column=1, row=6)
 
-fullnameText = tk.StringVar()
-fullnameLabel = ttk.Label(frame, text="Student Full Name : ").grid(
-    column=0, row=8, sticky=tk.W
-)
+fullname_Label = Label(frame, textvariable = "").grid(column=1, row=20)
 
-averageLabel = ttk.Label(frame, text="Average Score :").grid(
-    column=0, row=10, sticky=tk.W
-)
-averageText = tk.StringVar()
+average_Label = Label(frame, textvariable = "").grid(column=1, row=22)
 
-totalLabel = ttk.Label(frame, text="Total Score :").grid(column=0, row=12, sticky=tk.W)
-totalText = tk.StringVar()
+total_Label = Label(frame, textvariable = "").grid(column=1, row=22)
 
+fnameText=StringVar()
+lnameText=StringVar()
+score1Text=StringVar()
+score2Text=StringVar()
+score3Text=StringVar()
 
 def click_button1():
     first = fnameText.get
     last = lnameText.get
     fullname = first + " " + last
     fullnameText.set = str(fullname)
-
+    
 
 def click_button2():
-    root.destroy()
-
+  
 
 button1 = ttk.Button(frame, text="Calculate", command=None)
 button1.grid(column=0, row=22)
