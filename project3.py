@@ -3,8 +3,39 @@ from tkinter import *
 from tkinter import messagebox
 
 window = Tk()
-window.geometry("980x450")
-window.title("Future Value Calculator")
+window.geometry("900x900")
+window.title("The Bank of Jennifer - Future Value Calculator")
+
+choice = "Y"
+while choice.lower() == "y":
+
+    # Get input from user
+    monthly_investment = float(input("Enter Monthly Investment Amount: \t"))
+    yearly_interest_rate = float(input("Enter Yearly Rate: \t"))
+    years = int(input("Enter Number of Years : \t\t"))
+
+    # convert yearly values to monthly values
+    monthly_interest_rate = yearly_interest_rate / 12 / 100
+month = years * 12
+
+# calculate the future values
+future_value = 0
+for i in range(month):
+    future_value += monthly_investment
+    monthly_interest_amount = future_value * monthly_interest_rate
+    future_value += monthly_interest_amount
+
+
+# display the result
+print("Future value:\t\t\t" + str(round(future_value, 2)))
+print()
+
+# see if the user wants to continue using the program
+choice = input("Continue (y/n)?: ")
+print()
+
+print("Bye")
+
 
 # create the GUI
 # make the title your fake bank name ie JY Bank Future Value Calculator
