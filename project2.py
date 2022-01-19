@@ -82,7 +82,7 @@ def click_button3():
 button1 = ttk.Button(frame, text="Score", command=click_button1)
 button1.grid(column=0, row=30)
 
-button2 = ttk.Button(frame, text="Clear", command=None)
+button2 = ttk.Button(frame, text="Clear", command=click_button2)
 button2.grid(column=1, row=30)
 
 button3 = ttk.Button(frame, text="Exit", command=click_button3)
