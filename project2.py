@@ -49,7 +49,7 @@ fn_Text_str = tk.StringVar()
 fn_Label = ttk.Label(frame, textvariable="", width=25).grid(
     column=0, row=10, sticky=tk.W
 )
-fn_Text_str.set("")
+# fn_Text_str.set("")
 
 av_Text_str = tk.StringVar()
 av_Label = ttk.Label(frame, textvariable="", width=25).grid(
@@ -67,7 +67,7 @@ av_Text_str.set("")
 def click_button1():
     fullname = str(first_nameText.get()) + str(last_nameText.get())
     display = "Students Full Name: " + str(fullname)
-    fn_Text_str.set["textvariable"] = display
+    # fn_Text_str.set["textvariable"] = display
 
 
 def click_button2():
