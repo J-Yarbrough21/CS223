@@ -67,7 +67,7 @@ av_Text_str.set("")
 def click_button1():
     fullname = str(first_nameText.get()) + str(last_nameText.get())
     display = "Students Full Name: " + str(fullname)
-    # fn_Text_str.set["textvariable"] = display
+    # fn_Text_str.set = display
 
 
 def click_button2():
