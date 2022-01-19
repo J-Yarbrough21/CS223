@@ -1,66 +1,89 @@
 #!/usr/bin/env python3
 import tkinter as tk
 from tkinter import ttk
-from xml.dom import pulldom
 from tkinter import messagebox
 
-def init
 root = tk.Tk()
-root.geometry("375x400")
+root.geometry("900x900")
 root.title("Average Test Scores-Lab2")
 
 frame = ttk.Frame(root, padding="10 10 10 10")
 frame.pack(fill=tk.BOTH, expand=True)
 
-fnameLabel = ttk.Label(frame, text="Student First Name").grid(
+first_nameLabel = ttk.Label(frame, text="Student First Name: ").grid(
     column=0, row=0, sticky=tk.W
 )
-fnameText = tk.StringVar()
-fnameEntry = ttk.Entry(frame, width=25, textvariable=fnameText).grid(column=0, row=2)
-
-lnameLabel = ttk.Label(frame, text="Student Last Name").grid(
-    column=1, row=0, sticky=tk.W
+first_nameText = tk.StringVar()
+first_nameEntry = ttk.Entry(frame, width=200, textvariable=first_nameText).grid(
+    column=3, row=0
 )
-lnameText = tk.StringVar()
-lnameEntry = ttk.Entry(frame, width=25, textvariable=lnameText).grid(column=1, row=2)
 
-score1Label = ttk.Label(frame, text="Score 1").grid(column=0, row=4, sticky=tk.W)
-score1Text = tk.StringVar()
-score1Entry = ttk.Entry(frame, width=25, textvariable=score1Text).grid(column=1, row=4)
+last_nameLabel = ttk.Label(frame, text="Student Last Name: ").grid(
+    column=0, row=2, sticky=tk.W
+)
+last_nameText = tk.StringVar()
+last_nameEntry = ttk.Entry(frame, width=200, textvariable=last_nameText).grid(
+    column=2, row=2
+)
 
-score2Label = ttk.Label(frame, text="Score 2").grid(column=0, row=5, sticky=tk.W)
-score2Text = tk.StringVar()
-score2Entry = ttk.Entry(frame, width=25, textvariable=score2Text).grid(column=1, row=5)
+score_oneLabel = ttk.Label(frame, text="Score 1: ").grid(column=0, row=4, sticky=tk.W)
+score_oneText = tk.StringVar()
+score_oneEntry = ttk.Entry(frame, width=200, textvariable=score_oneText).grid(
+    column=2, row=4
+)
 
-score3Label = ttk.Label(frame, text="Score 3").grid(column=0, row=6, sticky=tk.W)
-score3Text = tk.StringVar()
-score3Entry = ttk.Entry(frame, width=25, textvariable=score3Text).grid(column=1, row=6)
+score_twoLabel = ttk.Label(frame, text="Score 2: ").grid(column=0, row=6, sticky=tk.W)
+score_twoText = tk.StringVar()
+score_twoEntry = ttk.Entry(frame, width=200, textvariable=score_twoText).grid(
+    column=2, row=6
+)
 
-ttk.Label(frame, text="Student Full Name: ").grid(column=0, row=10, sticky=tk.E)
-ttk.Entry(frame, width=200, textvariable=self.full_name).grid(column=0, row=12)
+score_threeLabel = ttk.Label(frame, text="Score 3: ").grid(column=0, row=8, sticky=tk.W)
+score_threeText = tk.StringVar()
+score_threeEntry = ttk.Entry(frame, width=200, textvariable=score_threeText).grid(
+    column=2, row=8
+)
 
-ttk.Label(frame, text="Average Score: ").grid(column=0, row=14, sticky=tk.E)
-ttk.Entry(frame, width=200, textvariable=self.average_score).grid(column=0, row=16)
+fn_Label = ttk.Label(frame, width=200).grid(column=0, row=10, sticky=tk.W)
+fn_Entry = ttk.Entry(frame, width=200, textvariable=" ").grid(column=2, row=10)
+fn_Text_str = tk.StringVar()
+fn_Entry["textvariable"] = fn_Text_str
 
-ttk.Label(frame, text="Total Score: ").grid(column=0, row=16, sticky=tk.E)
-ttk.Entry(frame, width=200, textvariable=self.total_score).grid(column=0, row=18) 
+av_Label = ttk.Label(frame, width=200).grid(column=0, row=14, sticky=tk.W)
+av_Entry = ttk.Entry(frame, width=200, textvariable=" ").grid(column=2, row=14)
+av_Text_str = ttk.StringVar()
+av_Entry["textvariable"] = av_Text_str
+
+
+ts_Label = ttk.Label(frame, width=200).grid(column=0, row=16, sticky=tk.W)
+ts_Entry = ttk.Entry(frame, width=200, textvariable=frame.total_score).grid(
+    column=2, row=16
+)
+ts_Text_str = ttk.StringVar()
+ts_Entry["textvariable"] = ts_Text_str
+
 
 def click_button1():
-  
+    fullname = str(first_nameText.get()) + str(last_nameText.get())
+    fn_Text_str.set = fullname
 
-# fullnameText = fnameText+lnameText
-# totalText = score1Entry+score2Entry+score3Entry
-# averageText = round(totalText/3)
-# display=total and average of scores.
 
 def click_button2():
+    root.title("this is the result of button 2")
+
+
+def click_button3():
     root.destroy()
 
-button1 = ttk.Button(frame, text="Score", command=None)
+
+button1 = ttk.Button(frame, text="Score", command=click_button1)
 button1.grid(column=0, row=30)
 
-button2 = ttk.Button(frame, text="Clear", command=click_button2)
+button2 = ttk.Button(frame, text="Clear", command=None)
 button2.grid(column=1, row=30)
+
+button3 = ttk.Button(frame, text="Exit", command=click_button3)
+button2.grid(column=2, row=30)
 
 for child in frame.winfo_children():
     child.grid_configure(padx=10, pady=10)
