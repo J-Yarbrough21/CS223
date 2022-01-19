@@ -44,23 +44,26 @@ score_threeEntry = ttk.Entry(frame, width=200, textvariable=score_threeText).gri
     column=2, row=8
 )
 
-fn_Label = ttk.Label(frame, width=200).grid(column=0, row=10, sticky=tk.W)
-fn_Entry = ttk.Entry(frame, width=200, textvariable=" ").grid(column=2, row=10)
-fn_Text_str = tk.StringVar()
-fn_Entry["textvariable"] = fn_Text_str
-
-av_Label = ttk.Label(frame, width=200).grid(column=0, row=14, sticky=tk.W)
-av_Entry = ttk.Entry(frame, width=200, textvariable=" ").grid(column=2, row=14)
-av_Text_str = ttk.StringVar()
-av_Entry["textvariable"] = av_Text_str
-
-
-ts_Label = ttk.Label(frame, width=200).grid(column=0, row=16, sticky=tk.W)
-ts_Entry = ttk.Entry(frame, width=200, textvariable=frame.total_score).grid(
-    column=2, row=16
+fn_Label = ttk.Label(frame, textvariable=" ", width=200).grid(
+    column=0, row=10, sticky=tk.W
 )
-ts_Text_str = ttk.StringVar()
-ts_Entry["textvariable"] = ts_Text_str
+fn_Entry = ttk.Entry(frame, width=200).grid(column=2, row=10)
+fn_Text_str = tk.StringVar()
+fn_Label["textvariable"] = fn_Text_str
+
+av_Label = ttk.Label(frame, textvariable=" ", width=200).grid(
+    column=0, row=14, sticky=tk.W
+)
+av_Entry = ttk.Entry(frame, width=200).grid(column=2, row=14)
+av_Text_str = tk.StringVar()
+av_Label["textvariable"] = av_Text_str
+
+ts_Label = ttk.Label(frame, textvariable=" ", width=200).grid(
+    column=0, row=16, sticky=tk.W
+)
+ts_Entry = ttk.Entry(frame, width=200).grid(column=2, row=16)
+ts_Text_str = tk.StringVar()
+ts_Label["textvariable"] = ts_Text_str
 
 
 def click_button1():
