@@ -2,6 +2,7 @@
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
+from turtle import left
 
 root = tk.Tk()
 root.geometry("900x900")
@@ -14,61 +15,59 @@ first_nameLabel = ttk.Label(frame, text="Student First Name: ").grid(
     column=0, row=0, sticky=tk.W
 )
 first_nameText = tk.StringVar()
-first_nameEntry = ttk.Entry(frame, width=200, textvariable=first_nameText).grid(
-    column=3, row=0
+first_nameEntry = ttk.Entry(frame, width=25, textvariable=first_nameText).grid(
+    column=1, row=0
 )
 
 last_nameLabel = ttk.Label(frame, text="Student Last Name: ").grid(
     column=0, row=2, sticky=tk.W
 )
 last_nameText = tk.StringVar()
-last_nameEntry = ttk.Entry(frame, width=200, textvariable=last_nameText).grid(
-    column=2, row=2
+last_nameEntry = ttk.Entry(frame, width=25, textvariable=last_nameText).grid(
+    column=1, row=2
 )
 
 score_oneLabel = ttk.Label(frame, text="Score 1: ").grid(column=0, row=4, sticky=tk.W)
 score_oneText = tk.StringVar()
-score_oneEntry = ttk.Entry(frame, width=200, textvariable=score_oneText).grid(
-    column=2, row=4
+score_oneEntry = ttk.Entry(frame, width=25, textvariable=score_oneText).grid(
+    column=1, row=4
 )
 
 score_twoLabel = ttk.Label(frame, text="Score 2: ").grid(column=0, row=6, sticky=tk.W)
 score_twoText = tk.StringVar()
-score_twoEntry = ttk.Entry(frame, width=200, textvariable=score_twoText).grid(
-    column=2, row=6
+score_twoEntry = ttk.Entry(frame, width=25, textvariable=score_twoText).grid(
+    column=1, row=6
 )
 
 score_threeLabel = ttk.Label(frame, text="Score 3: ").grid(column=0, row=8, sticky=tk.W)
 score_threeText = tk.StringVar()
-score_threeEntry = ttk.Entry(frame, width=200, textvariable=score_threeText).grid(
-    column=2, row=8
+score_threeEntry = ttk.Entry(frame, width=25, textvariable=score_threeText).grid(
+    column=1, row=8
 )
 
-fn_Label = ttk.Label(frame, textvariable=" ", width=200).grid(
+fn_Text_str = tk.StringVar()
+fn_Label = ttk.Label(frame, textvariable="", width=25).grid(
     column=0, row=10, sticky=tk.W
 )
-fn_Entry = ttk.Entry(frame, width=200).grid(column=2, row=10)
-fn_Text_str = tk.StringVar()
-fn_Label["textvariable"] = fn_Text_str
+fn_Text_str.set("")
 
-av_Label = ttk.Label(frame, textvariable=" ", width=200).grid(
+av_Text_str = tk.StringVar()
+av_Label = ttk.Label(frame, textvariable="", width=25).grid(
     column=0, row=14, sticky=tk.W
 )
-av_Entry = ttk.Entry(frame, width=200).grid(column=2, row=14)
-av_Text_str = tk.StringVar()
-av_Label["textvariable"] = av_Text_str
+av_Text_str.set("")
 
-ts_Label = ttk.Label(frame, textvariable=" ", width=200).grid(
+ts_Text_str = tk.StringVar()
+ts_Label = ttk.Label(frame, textvariable="", width=25).grid(
     column=0, row=16, sticky=tk.W
 )
-ts_Entry = ttk.Entry(frame, width=200).grid(column=2, row=16)
-ts_Text_str = tk.StringVar()
-ts_Label["textvariable"] = ts_Text_str
+av_Text_str.set("")
 
 
 def click_button1():
     fullname = str(first_nameText.get()) + str(last_nameText.get())
-    fn_Text_str.set = fullname
+    display = "Students Full Name: " + str(fullname)
+    fn_Text_str.set["textvariable"] = display
 
 
 def click_button2():
@@ -86,7 +85,7 @@ button2 = ttk.Button(frame, text="Clear", command=click_button2)
 button2.grid(column=1, row=30)
 
 button3 = ttk.Button(frame, text="Exit", command=click_button3)
-button2.grid(column=2, row=30)
+button3.grid(column=2, row=30)
 
 for child in frame.winfo_children():
     child.grid_configure(padx=10, pady=10)
