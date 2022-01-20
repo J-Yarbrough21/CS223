@@ -6,17 +6,33 @@ window = Tk()
 window.geometry("900x900")
 window.title("The Bank of Jennifer - Future Value Calculator")
 
-choice = "Y"
-while choice.lower() == "y":
 
-    # Get input from user
-    monthly_investment = float(input("Enter Monthly Investment Amount: \t"))
+def calculate_future_value(monthly_investment, yearly_interest, years):
+    # convert yearly values to monthly values
+    monthly_interest_rate = yearly_interest / 12 / 100
+    months = years * 12
+
+    future_value = 0.0
+    for i in range(0, months):
+        future_value += monthly_investment
+        monthly_interest = future_value * monthly_interest_rate
+        future_value += monthly_interest
+        return future_value
+
+
+def main():
+    choice = "Y"
+    while choice.lower() == "y":
+
+        # Get input from user
+        monthly_investment = float(input("Enter Monthly Investment Amount: \t"))
     yearly_interest_rate = float(input("Enter Yearly Rate: \t"))
     years = int(input("Enter Number of Years : \t\t"))
 
     # convert yearly values to monthly values
     monthly_interest_rate = yearly_interest_rate / 12 / 100
-month = years * 12
+    month = years * 12
+
 
 # calculate the future values
 future_value = 0
@@ -35,6 +51,9 @@ choice = input("Continue (y/n)?: ")
 print()
 
 print("Bye")
+
+if main == "_main":
+    main()
 
 
 # create the GUI
