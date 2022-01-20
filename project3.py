@@ -6,6 +6,10 @@ window = Tk()
 window.geometry("900x900")
 window.title("The Bank of Jennifer - Future Value Calculator")
 
+def main()
+print("Welcome to The Bank of Jennifer - Future Value Calculator\n")
+
+#interest_rate = 0.95
 choice = "Y"
 while choice.lower() == "y":
 
