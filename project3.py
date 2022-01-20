@@ -6,26 +6,25 @@ window = Tk()
 window.geometry("900x900")
 window.title("The Bank of Jennifer - Future Value Calculator")
 
-<<<<<<< HEAD
-=======
-def main()
-print("Welcome to The Bank of Jennifer - Future Value Calculator\n")
 
-#interest_rate = 0.95
+def main():
+    print("Welcome to The Bank of Jennifer - Future Value Calculator\n")
+
+
+# interest_rate = 0.95
 choice = "Y"
 while choice.lower() == "y":
->>>>>>> 9cd68f0362322a547eec2ca6174f72e836dec519
 
-def calculate_future_value(monthly_investment, yearly_interest, years):
-    # convert yearly values to monthly values
-    monthly_interest_rate = yearly_interest / 12 / 100
-    months = years * 12
+    def calculate_future_value(monthly_investment, yearly_interest, years):
+        # convert yearly values to monthly values
+        monthly_interest_rate = yearly_interest / 12 / 100
+        months = years * 12
 
-    future_value = 0.0
-    for i in range(0, months):
-        future_value += monthly_investment
-        monthly_interest = future_value * monthly_interest_rate
-        future_value += monthly_interest
+        future_value = 0.0
+        for i in range(0, months):
+            future_value += monthly_investment
+            monthly_interest = future_value * monthly_interest_rate
+            future_value += monthly_interest
         return future_value
 
 
