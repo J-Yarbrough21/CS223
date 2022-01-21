@@ -1,29 +1,31 @@
 #!/usr/bin/env python3
 
-import tkinter as tk
-import tkinter.font as tkFont
+from tkinter import *
 
-root = tk.Tk()
+root = Tk()
 root.geometry("900x900")
-root.title("The Bank of Jennifer - Future Value Calculator")
-ft = tkFont.Font(family="Times", size=14, weight="bold")
+root.title("Future Value Calculator from the Bank of Jennifer")
 
-# User Input Labels and Entry Boxesa
-mi_label = tk.Label(root, text="Monthly Investment Amount.", font=("Times", 12, "bold"))
-mi_label.place(x=10, y=10)
-
-mi_box = tk.Entry(root, textvariable="", font=("Times", 12))
-mi_box.place(x=50, y=10)
-
-yl_label = tk.Label(
+# User Input Labels and Entry Boxes
+label = Label(
     root,
-    text="Number of Years ",
+    text="Monthly Investment",
     font=("Times", 12, "bold"),
+    fg="#030303",
+    justify=("left"),
 )
-yl_label.place(x=0, y=30)
+label.place(x=5, y=20, width=150, height=30)
 
-yl_box = tk.Text(root, textvariable="", font=("Times", 12))
-yl_box.place(x=50, y=30)
+mi_entry = Entry(root, font=("Times", 12))
+mi_entry.place(x=35, y=55, width=150, height=30)
+
+label = Label(
+    root, text="Years Saved", font=("Times", 12, "bold"), fg="#030303", justify=("left")
+)
+label.place(x=5, y=20, width=150, height=30)
+
+yl_entry = Entry(root, font=("Times", 12))
+yl_entry.place(x=35, y=55, width=150, height=30)
 
 root.mainloop()
 
