@@ -1,27 +1,29 @@
 #!/usr/bin/env python3
 
-from tkinter import *
 import tkinter as tk
 import tkinter.font as tkFont
-
 
 root = tk.Tk()
 root.geometry("900x900")
 root.title("The Bank of Jennifer - Future Value Calculator")
 ft = tkFont.Font(family="Times", size=14, weight="bold")
 
-mi_label = Label(
-    root, text="Enter the Monthly Investment Amount.", font=("Times", 12, "bold")
-)
+# User Input Labels and Entry Boxesa
+mi_label = tk.Label(root, text="Monthly Investment Amount.", font=("Times", 12, "bold"))
 mi_label.place(x=10, y=10)
 
-yl_label = Label(
+mi_box = tk.Entry(root, textvariable="", font=("Times", 12))
+mi_box.place(x=50, y=10)
+
+yl_label = tk.Label(
     root,
-    text="Enter the Number of Years you would like to save ",
+    text="Number of Years ",
     font=("Times", 12, "bold"),
 )
-yl_label.place(x=50, y=10)
+yl_label.place(x=0, y=30)
 
+yl_box = tk.Text(root, textvariable="", font=("Times", 12))
+yl_box.place(x=50, y=30)
 
 root.mainloop()
 
