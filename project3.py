@@ -1,57 +1,29 @@
 #!/usr/bin/env python3
+
 from tkinter import *
-
-window = Tk()
-window.geometry("900x900")
-window.title("The Bank of Jennifer - Future Value Calculator")
+import tkinter as tk
+import tkinter.font as tkFont
 
 
-def main():
-    print("Welcome to The Bank of Jennifer - Future Value Calculator\n")
+root = tk.Tk()
+root.geometry("900x900")
+root.title("The Bank of Jennifer - Future Value Calculator")
+ft = tkFont.Font(family="Times", size=14, weight="bold")
+
+mi_label = Label(
+    root, text="Enter the Monthly Investment Amount.", font=("Times", 12, "bold")
+)
+mi_label.place(x=10, y=10)
+
+yl_label = Label(
+    root,
+    text="Enter the Number of Years you would like to save ",
+    font=("Times", 12, "bold"),
+)
+yl_label.place(x=50, y=10)
 
 
-# interest_rate = 0.95
-choice = "Y"
-while choice.lower() == "y":
-
-    def calculate_future_value(monthly_investment, yearly_interest, years):
-        # convert yearly values to monthly values
-        monthly_interest_rate = yearly_interest / 12 / 100
-        month = years * 12
-
-        future_value = 0.0
-        for i in range(0, month):
-            future_value += monthly_investment
-            monthly_interest = future_value * monthly_interest_rate
-            future_value += monthly_interest
-        return future_value
-
-
-def main():
-    choice = "Y"
-    while choice.lower() == "y":
-
-        # Get input from user
-        monthly_investment = float(input("Enter Monthly Investment Amount: \t"))
-        yearly_interest_rate = float(input("Enter Yearly Interest Rate: \t"))
-        years = int(input("Enter Number of Years : \t\t"))
-
-
-# Get future_value
-future_value = calculate_future_value(monthly_investment, yearly_interest_rate, years)
-
-# display the result
-print("Future value:\t\t\t" + str(round(future_value, 2)))
-print()
-
-# see if the user wants to continue using the program
-choice = input("Continue (y/n)?: ")
-print()
-
-print("Bye")
-
-if main == "_main":
-    main()
+root.mainloop()
 
 # create the GUI
 # make the title your fake bank name ie JY Bank Future Value Calculator
@@ -62,5 +34,3 @@ if main == "_main":
 # calculate future value
 # call the functions
 # view like Exercise 3-3
-
-window.mainloop()
