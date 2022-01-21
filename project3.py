@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from tkinter import *
+from turtle import clear
 
 root = Tk()
 root.geometry("900x900")
@@ -63,23 +64,31 @@ def calculate():
     FV3 = future_value1 * future_value2
     total_future_value = FV3
 
-    def destroy():
-        root.destroy()
 
-    # OUTPUTS
-    yfv_entry = Entry(root, textvariable="", font=("Times", 12))
-    yfv_entry.place(x=35, y=195, width=120, height=30)
+def destroy():
+    root.destroy()
 
-    # BUTTONS
-    button = Button(
-        root, text="Calculate", command=calculate, font=("Times", 12, "bold")
-    )
-    button.place(x=10, y=430, width=150, height=30)
 
-    button = Button(root, text="Exit", command="destroy", font=("Times", 12, "bold"))
-    button.place(x=10, y=430, width=150, height=30)
+# OUTPUTS
+yfv_entry = Entry(root, textvariable="", font=("Times", 12))
+yfv_entry.place(x=35, y=195, width=120, height=30)
 
-    root.mainloop()
+
+# BUTTONS
+
+
+calc1 = Button(root, text="Calculate", command=calculate, font=("Times", 12, "bold"))
+calc1.place(x=10, y=430, width=150, height=30)
+
+
+clear = Button(root, text="Clear", command=calculate, font=("Times", 12, "bold"))
+clear.place(x=10, y=430, width=150, height=30)
+
+
+exit = Button(root, text="Exit", command="destroy", font=("Times", 12, "bold"))
+exit.place(x=10, y=430, width=150, height=30)
+
+root.mainloop()
 
 
 # future Value formula FV=PV(1+i)to the "n" power
