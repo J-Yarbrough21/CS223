@@ -6,7 +6,7 @@ root = Tk()
 root.geometry("900x900")
 root.title("Future Value Calculator from the Bank of Jennifer")
 
-# User Input Labels and Entry Boxes
+# USER INPUT LABELS AND BOXES
 label = Label(
     root,
     text="Monthly Investment: ",
@@ -31,7 +31,7 @@ label.place(x=350, y=10, width=200, height=30)
 yl_entry = Entry(root, font=("Times", 18))
 yl_entry.place(x=500, y=10, width=200, height=30)
 
-
+# FUNCTIONS
 def m_int(self):
     int1 = 9.50 / 100
     int2 = int1 / 12
@@ -57,13 +57,27 @@ def fut_val2():
 
 
 def calculate():
+    user_pv = mi_entry.get()
+    future_value1 = (user_pv)(1 + m_int)
+    future_value2 = (user_pv)(1 + m_int)
+    FV3 = future_value1 * future_value2
+    total_future_value = FV3
 
-    # future Value formula FV=PV(1+m_int)to the "n" power
-    # FV1= (PV=mi_entry)(1+ i = interest2)
-    # FV2 = FV1 * FV2
+    def destroy():
+        root.destroy()
 
-    # Out Put Boxes
-    # Yearly Future Value
+    # OUTPUTS
+    yfv_entry = Entry(root, textvariable="", font=("Times", 12))
+    yfv_entry.place(x=35, y=195, width=120, height=30)
+
+    # BUTTONS
+    button = Button(
+        root, text="Calculate", command=calculate, font=("Times", 12, "bold")
+    )
+    button.place(x=10, y=430, width=150, height=30)
+
+    button = Button(root, text="Exit", command="destroy", font=("Times", 12, "bold"))
+    button.place(x=10, y=430, width=150, height=30)
 
     root.mainloop()
 
@@ -93,7 +107,7 @@ def calculate():
 # button1 calculate
 # button two exit
 
-# hard code the interest rate to 9.5%
+
 # create the necessary buttons - y/n continue
 # properly define the functions
 # convert yearly values to monthly values
