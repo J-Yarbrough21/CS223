@@ -4,7 +4,7 @@ from tkinter import *
 from turtle import clear
 
 root = Tk()
-root.geometry("900x900")
+root.geometry("600x300")
 root.title("Future Value Calculator from the Bank of Jennifer")
 
 # USER INPUT LABELS AND BOXES
@@ -15,10 +15,10 @@ label = Label(
     fg="#00FFFF",
     justify=("right"),
 )
-label.place(x=0, y=10, width=200, height=30)
+label.place(x=0, y=20, width=200, height=30)
 
 mi_entry = Entry(root, font=("Times", 18))
-mi_entry.place(x=185, y=10, width=200, height=30)
+mi_entry.place(x=225, y=20, width=200, height=30)
 
 label = Label(
     root,
@@ -27,10 +27,10 @@ label = Label(
     fg="#00FFFF",
     justify=("right"),
 )
-label.place(x=350, y=10, width=200, height=30)
+label.place(x=0, y=60, width=200, height=30)
 
 yl_entry = Entry(root, font=("Times", 18))
-yl_entry.place(x=500, y=10, width=200, height=30)
+yl_entry.place(x=225, y=60, width=200, height=30)
 
 # FUNCTIONS
 def m_int(self):
@@ -65,28 +65,38 @@ def calculate():
     total_future_value = FV3
 
 
+def clear():
+    mi_entry.delete(0, END)
+    yl_entry.delete(0, END)
+    yfv_entry.delete(0, END)
+
+
 def destroy():
     root.destroy()
 
 
 # OUTPUTS
+label = Label(
+    root,
+    text="Future Value: ",
+    font=("Times", 18, "bold"),
+    fg="#00FFFF",
+    justify=("right"),
+)
+label.place(x=0, y=100, width=200, height=30)
 yfv_entry = Entry(root, textvariable="", font=("Times", 12))
-yfv_entry.place(x=35, y=195, width=120, height=30)
-
+yfv_entry.place(x=225, y=100, width=200, height=30)
 
 # BUTTONS
 
-
 calc1 = Button(root, text="Calculate", command=calculate, font=("Times", 12, "bold"))
-calc1.place(x=10, y=430, width=150, height=30)
-
+calc1.place(x=25, y=200, width=150, height=30)
 
 clear = Button(root, text="Clear", command=calculate, font=("Times", 12, "bold"))
-clear.place(x=10, y=430, width=150, height=30)
+clear.place(x=225, y=200, width=150, height=30)
 
-
-exit = Button(root, text="Exit", command="destroy", font=("Times", 12, "bold"))
-exit.place(x=10, y=430, width=150, height=30)
+exit = Button(root, text="Exit", command=destroy, font=("Times", 12, "bold"))
+exit.place(x=425, y=200, width=150, height=30)
 
 root.mainloop()
 
