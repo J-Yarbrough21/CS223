@@ -61,8 +61,8 @@ def fut_val2():
 
 def calculate():
     user_pv = mi_entry.get()
-    future_value1 = (user_pv)(1 + m_int)
-    future_value2 = (user_pv)(1 + m_int)
+    future_value1 = float(user_pv)(1 + m_int)
+    future_value2 = user_pv(1 + m_int)
     FV3 = future_value1 * future_value2
     total_future_value = FV3
 
