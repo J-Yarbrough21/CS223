@@ -80,7 +80,7 @@ def years2():  # calculates total yearly interest
 
 def fut_val1():  # calculates monthly interest rate for users value
     mi_1 = float(mi_entry.get())
-    return mi_1() + mi_1() * months1()
+    return mi_1 + m_int() * months1()
 
 
 def fut_val2():  # calculates total of one monthly value for user input and interest
