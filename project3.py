@@ -15,9 +15,10 @@ label = Label(
     fg="#00FFFF",
     justify=("right"),
 )
-label.place(x=0, y=20, width=200, height=30)
 
-mi_entry = Entry(root, font=("Times", 18))
+mi_string = StringVar()
+label.place(x=0, y=20, width=200, height=30)
+mi_entry = Entry(root, textvariable=mi_string, font=("Times", 18))
 mi_entry.place(x=225, y=20, width=200, height=30)
 
 
@@ -28,24 +29,13 @@ label = Label(
     fg="#00FFFF",
     justify=("right"),
 )
+yl_string = StringVar()
 label.place(x=0, y=60, width=200, height=30)
-
-yl_entry = Entry(root, font=("Times", 18))
+yl_entry = Entry(root, textvariable=yl_string, font=("Times", 18))
 yl_entry.place(x=225, y=60, width=200, height=30)
 
 
-# OUTPUTS
-
-label = Label(
-    root,
-    text="Yearly Future Value: ",
-    font=("Times", 18, "bold"),
-    fg="#00FFFF",
-    justify=("right"),
-)
-label.place(x=0, y=100, width=200, height=30)
-yfv_entry = Entry(root, textvariable="", font=("Times", 12))
-yfv_entry.place(x=225, y=100, width=200, height=30)
+# OUTPUT
 
 label = Label(
     root,
@@ -83,9 +73,9 @@ def calculate():
 
 
 def clear():
-    mi_entry.delete(0, END)
-    yl_entry.delete(0, END)
-    yfv_entry.delete(0, END)
+    mi_string.set.format("")
+    yl_string.set("")
+    yfv_string.set("")
 
 
 def destroy():
