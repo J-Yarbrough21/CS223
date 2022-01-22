@@ -33,44 +33,40 @@ yl_entry = Entry(root, font=("Times", 18))
 yl_entry.place(x=225, y=60, width=200, height=30)
 
 # FUNCTIONS
-# the 'self' keyword is only used if you are defining a function that is a
-# member of a class.  No class, no self.
-# when using the function in arithmitic or other operations, it MUST return a
-# result of the type needed for the operation.
-def m_int(apy=9.50):
+
+def m_int(apy=9.50): # takes yearly interest rate and converts to monthly rate
     return (apy / 100) / 12
 
-
-def months1():
-    years = float(mi_entry.get())
+def months1(): # converts users years saved input into months
+    years = float(yl_entry.get())
     months = years * 12
-    months1 = months
+    return months
 
+def years(): #converts months1 into years 
+    return months1/12
 
-def fut_val1():
+def fut_val1(): #calculates monthly interest rate for users value
     mi_1 = float(mi_entry.get())
     fv_1a = float(mi_1) * (1 + m_int)
     fut_val1 = fv_1a
+    return fut_val1
 
-
-def fut_val2():
+def fut_val2(): #calculates total monthly value for user input and interest
     mi_1 = float(mi_entry.get())
     fv_1a = float(mi_1) * (1 + m_int)
-    fut_val2 = fv_1a
+    fv_2a = mi_1 + fv_1a
+    fut_val2 = fv_2a
+    return fut_val2
 
 
 def calculate():
-    user_pv = mi_entry.get()
-    future_value1 = float(user_pv)(1 + m_int)
-    future_value2 = user_pv(1 + m_int)
-    FV3 = future_value1 * future_value2
-    total_future_value = FV3
-
+    
+    
 
 def clear():
-    mi_entry.delete(0, END)
-    yl_entry.delete(0, END)
-    yfv_entry.delete(0, END)
+        mi_entry.delete(0, END)
+        yl_entry.delete(0, END)
+        yfv_entry.delete(0, END)
 
 
 def destroy():
@@ -80,7 +76,7 @@ def destroy():
 # OUTPUTS
 label = Label(
     root,
-    text="Future Value: ",
+    text="Yearly Future Value: ",
     font=("Times", 18, "bold"),
     fg="#00FFFF",
     justify=("right"),
