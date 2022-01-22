@@ -33,13 +33,15 @@ yl_entry = Entry(root, font=("Times", 18))
 yl_entry.place(x=225, y=60, width=200, height=30)
 
 # FUNCTIONS
-def m_int(self):
-    int1 = 9.50 / 100
-    int2 = int1 / 12
-    m_int = int2
+# the 'self' keyword is only used if you are defining a function that is a
+# member of a class.  No class, no self.
+# when using the function in arithmitic or other operations, it MUST return a
+# result of the type needed for the operation.
+def m_int(apy=9.50):
+    return (apy / 100) / 12
 
 
-def months1(self):
+def months1():
     years = float(mi_entry.get())
     months = years * 12
     months1 = months
