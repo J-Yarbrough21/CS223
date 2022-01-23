@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 import tkinter as tk
-from tkinter import ttk
+from tkinter import W, ttk
 from tkinter import messagebox
 from turtle import left
 
 root = tk.Tk()
-root.geometry("900x900")
+root.geometry("700x500")
 root.title("Average Test Scores-Lab2")
 
 frame = ttk.Frame(root, padding="10 10 10 10")
@@ -45,43 +45,73 @@ score_threeEntry = ttk.Entry(frame, width=25, textvariable=score_threeText).grid
     column=1, row=8
 )
 
+
 fn_Text_str = tk.StringVar()
-fn_Label = ttk.Label(frame, textvariable="", width=25).grid(
-    column=0, row=10, sticky=tk.W
+fn_Text_str.set("")
+fn_Label = ttk.Label(frame, text="Students Full Name: ").grid(
+    column=0, row=12, sticky=tk.W
 )
-# fn_Text_str.set("")
-
-av_Text_str = tk.StringVar()
-av_Label = ttk.Label(frame, textvariable="", width=25).grid(
-    column=0, row=14, sticky=tk.W
+full_nameEntry = ttk.Entry(frame, text=fn_Text_str, state="readonly").grid(
+    column=1, row=12, sticky=tk.E
 )
-av_Text_str.set("")
 
-ts_Text_str = tk.StringVar()
-ts_Label = ttk.Label(frame, textvariable="", width=25).grid(
-    column=0, row=16, sticky=tk.W
+avg_Text_str = tk.StringVar()
+avg_Text_str.set("")
+avg_scoreLabel = ttk.Label(frame, text="Average Test Score: ").grid(column=0, row=14)
+avg_Entry = ttk.Entry(frame, text=avg_Text_str, state="readonly").grid(
+    column=1, row=14, sticky=tk.E
 )
-av_Text_str.set("")
+
+total_Text_str = tk.StringVar()
+total_Text_str.set("")
+avg_scoreLabel = ttk.Label(frame, text="Total Test Score: ").grid(column=0, row=16)
+total_Entry = ttk.Entry(frame, text=total_Text_str, state="readonly").grid(
+    column=1, row=16, sticky=tk.E
+)
 
 
-def click_button1():
-    fullname = str(first_nameText.get()) + str(last_nameText.get())
-    display = "Students Full Name: " + str(fullname)
-    # fn_Text_str.set = display
+def get_scores():
+    # Setting the retrieved values for the scores as elements in a list.
+    tmp_scores = [score_oneText.get(), score_twoText.get(), score_threeText.get()]
+    # returning a list comprehension where the strings are converted to floats.
+    return [float(x) for x in tmp_scores]
 
 
-def click_button2():
-    root.title("this is the result of button 2")
+def total_score():
+    # returning the sum of the scores in the list.
+    return sum(get_scores())
+
+
+def avg_score():
+    # returning the average of the scores in the list
+    return sum(get_scores()) / len(get_scores())
+
+
+def clk_score():
+    fn_Text_str.set(first_nameText.get() + " " + last_nameText.get())
+    avg_Text_str.set("{:.2f}".format(avg_score()))
+    total_Text_str.set("{:.2f}".format(total_score()))
+
+
+def clk_clear():
+    first_nameText.set("")
+    last_nameText.set("")
+    score_oneText.set("")
+    score_twoText.set("")
+    score_threeText.set("")
+    fn_Text_str.set("")
+    avg_Text_str.set("")
+    total_Text_str.set("")
 
 
 def click_button3():
     root.destroy()
 
 
-button1 = ttk.Button(frame, text="Score", command=click_button1)
+button1 = ttk.Button(frame, text="Score", command=clk_score)
 button1.grid(column=0, row=30)
 
-button2 = ttk.Button(frame, text="Clear", command=click_button2)
+button2 = ttk.Button(frame, text="Clear", command=clk_clear)
 button2.grid(column=1, row=30)
 
 button3 = ttk.Button(frame, text="Exit", command=click_button3)

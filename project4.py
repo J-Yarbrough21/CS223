@@ -8,16 +8,7 @@ root = Tk()
 root.geometry("700x300")
 root.title("Temperature Conversion")
 
-#POPUP WINDOW FOR INSTRUCTIONS
-ws = Tk()
-ws.title("Welcome to the Temperature Convertor")
-ws.geometery("300x300")
-ws.config(bg='#5FB691')
-
-def msg1():
-    messagebox.showinfo(title:None | message:str(" Please enter a Celsius temperature in the box."))
-
-Button(ws, text='OK', command=msg1).pack(pady=50)
+# POPUP WINDOW FOR INSTRUCTIONS
 
 
 # USER INPUT
