@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from os import kill
 from tkinter import *
 from tkinter import messagebox
 
@@ -8,10 +7,18 @@ root = Tk()
 root.geometry("700x300")
 root.title("Temperature Conversion")
 
-# POPUP WINDOW FOR INSTRUCTIONS
-
-
 # USER INPUT
+label = Label(
+    root,
+    text=" Please Enter a Temperature and Press the Convert Button",
+    font=("Times", 18, "bold"),
+)
+label.place(
+    x=100,
+    y=10,
+    width=500,
+    height=30,
+)
 
 label = Label(
     root,
@@ -20,9 +27,9 @@ label = Label(
     justify=("right"),
 )
 tc_string = StringVar()
-label.place(x=155, y=50, width=200, height=30)
+label.place(x=155, y=75, width=200, height=30)
 tc_entry = Entry(root, textvariable=tc_string, font=("Times", 18, "bold"))
-tc_entry.place(x=350, y=50, width=200, height=30)
+tc_entry.place(x=350, y=75, width=200, height=30)
 
 # OUTPUT IN FAHRENHEIT
 
@@ -34,8 +41,8 @@ label = Label(
 )
 tf_string = StringVar()
 label.place(x=115, y=125, width=250, height=30)
-tf_entry = Entry(root, textvariable=tf_string, font=("Times", 18))
-tf_entry.place(x=350, y=125, width=200, height=30)
+tf_entry = Entry(root, textvariable=tf_string, state="readonly", font=("Times", 18))
+tf_entry.place(x=350, y=128, width=200, height=30)
 
 
 # FUNCTIONS
@@ -71,12 +78,3 @@ exit = Button(root, text="Exit", command=destroy, font=("Times", 18, "bold"))
 exit.place(x=475, y=200, width=150, height=30)
 
 root.mainloop()
-
-
-# the main conversion
-# window configuration
-# user instruction and input
-# shows result for opposite temp
-# allow button to be clicked to convert
-# add function for the button to convert from C to F
-# bonus points for code to catch user input error
