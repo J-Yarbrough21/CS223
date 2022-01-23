@@ -17,9 +17,9 @@ label = Label(
 )
 
 mi_string = StringVar()
-label.place(x=0, y=20, width=200, height=30)
+label.place(x=50, y=25, width=200, height=30)
 mi_entry = Entry(root, textvariable=mi_string, font=("Times", 18))
-mi_entry.place(x=225, y=20, width=200, height=30)
+mi_entry.place(x=250, y=25, width=200, height=30)
 
 
 label = Label(
@@ -30,24 +30,24 @@ label = Label(
     justify=("right"),
 )
 yl_string = StringVar()
-label.place(x=0, y=60, width=200, height=30)
+label.place(x=80, y=75, width=200, height=30)
 yl_entry = Entry(root, textvariable=yl_string, font=("Times", 18))
-yl_entry.place(x=225, y=60, width=200, height=30)
+yl_entry.place(x=250, y=75, width=200, height=30)
 
 
 # OUTPUT
 
 label = Label(
     root,
-    text="Total Years Future Value: ",
+    text=" Total Future Value: ",
     font=("Times", 18, "bold"),
     fg="#00FFFF",
     justify=("right"),
 )
 yfv_string = StringVar()
-label.place(x=0, y=100, width=200, height=30)
+label.place(x=50, y=125, width=200, height=30)
 yfv_entry = Entry(root, textvariable=yfv_string, font=("Times", 18))
-yfv_entry.place(x=225, y=100, width=200, height=30)
+yfv_entry.place(x=250, y=125, width=200, height=30)
 
 # FUNCTIONS
 
@@ -73,7 +73,7 @@ def calculate():
 
 
 def clear():
-    mi_string.set.format("")
+    mi_string.set("")
     yl_string.set("")
     yfv_string.set("")
 
@@ -87,7 +87,7 @@ def destroy():
 calc1 = Button(root, text="Calculate", command=calculate, font=("Times", 12, "bold"))
 calc1.place(x=25, y=200, width=150, height=30)
 
-clear = Button(root, text="Clear", command=calculate, font=("Times", 12, "bold"))
+clear = Button(root, text="Clear", command=clear, font=("Times", 12, "bold"))
 clear.place(x=225, y=200, width=150, height=30)
 
 exit = Button(root, text="Exit", command=destroy, font=("Times", 12, "bold"))
