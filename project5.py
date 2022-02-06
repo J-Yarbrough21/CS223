@@ -2,13 +2,15 @@
 
 # Establishes the name of the program, allows for exit of the program
 def display_welcome():
-    print("The Test Scores Program")
+    print("The Test Scores Program by Jennifer Y. ")
     print("Enter 'x' to exit")
     print("")
 
 
 # makes scores a list, recieves input from user, checks for validity of entry
+# only gather 5 test scores
 def get_scores():
+    global scores
     scores = []
     while True:
         score = input("Enter test score: ")
@@ -25,28 +27,33 @@ def get_scores():
                 )
 
 
-def length(get_scores):
-    global t_length
-    t_length = 0
-    for how_many in get_scores:
-        t_length += 1
-        return t_length
+# calculations for total, average, low, high and median
+# for statement to total the scores in the list
+# use the len() function to get the number of scores in the list
+# average = scores / length
+# median = #middle number of the 5 scores
 
 
-def process_scores(scores):  # calculations for total, average, low, high and median
+def process_scores(scores):
 
-    # average = scores / length
-    low_score = min(scores)
-    high_score = max(scores)
-    # median = #middle number of the 5 scores
+    all_scores = 0
+    for score in scores(1, scores() + 1):
+        all_scores += score
 
-    print()
-    print("Score total:     ", scores)
-    print("Number of Scores:   ", t_length)
-    # print("Average Score:   ", average)
-    print("Low Score:    ", low_score)
-    print("High Score:  ", high_score)
-    # print("Median Score:  ", median)
+
+length = len(scores)
+average = round(all_scores / len(scores))
+low_score = min(scores)
+high_score = max(scores)
+
+
+print()
+print("Score Total:     ", all_scores)
+print("Number of Scores:   ", len(scores))
+print("Average Score:   ", average)
+print("Low Score:    ", low_score)
+print("High Score:  ", high_score)
+# print("Median Score:  ", median)
 
 
 def main():
@@ -60,15 +67,3 @@ def main():
 # if started as the main module, call the main function
 if __name__ == "__main__":
     main()
-
-# please complete the exercises in your textbook  chapter 6-1 page 199
-
-# use the list for the Test Scores program
-
-# Add two more scores to the list
-
-# turn in your working py code
-
-# completed project.
-
-# terminate at 5 places
