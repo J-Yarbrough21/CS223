@@ -7,14 +7,15 @@ def list(movie_list):
         return
     else:
         for i, movie in enumerate(movie_list, start=1):
-            print(f"{i}. {movie[0]} ({movie[1]})")
+            print(f"{i}. {movie[0]} ({movie[1]} ({movie[2]}))")
         print()
 
 
 def add(movie_list):
     name = input("Name: ")
     year = input("Year: ")
-    movie = [name, year]
+    price = input("Price:$ ")
+    movie = [name, year, price]
     movie_list.append(movie)
     print(f"{movie[0]} was added.\n")
 
@@ -39,9 +40,9 @@ def display_menu():
 
 def main():
     movie_list = [
-        ["Monty Python and the Holy Grail", 1975],
-        ["On the Waterfront", 1954],
-        ["Cat on a Hot Tin Roof", 1958],
+        ["Monty Python and the Holy Grail", 1975, 9.95],
+        ["On the Waterfront", 1954, 5.59],
+        ["Cat on a Hot Tin Roof", 1958, 7.95],
     ]
 
     display_menu()
@@ -70,6 +71,6 @@ if __name__ == "__main__":
 
 # use the list for th Test Scores program
 # add two more movies to the list
-# turn in your working py code
+# turn in your working py code3e
 # completed project
 # terminate at 5 places
