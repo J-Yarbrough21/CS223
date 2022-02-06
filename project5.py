@@ -10,7 +10,6 @@ def display_welcome():
 # makes scores a list, recieves input from user, checks for validity of entry
 # only gather 5 test scores
 def get_scores():
-    global scores
     scores = []
     while True:
         score = input("Enter test score: ")
@@ -32,24 +31,22 @@ def get_scores():
 # use the len() function to get the number of scores in the list
 # average = scores / length
 # median = #middle number of the 5 scores
-
-
 def process_scores(scores):
-
     all_scores = 0
     for score in scores(1, scores() + 1):
         all_scores += score
+    return all_scores
 
 
-length = len(scores)
-average = round(all_scores / len(scores))
-low_score = min(scores)
-high_score = max(scores)
+length = len(process_scores)
+average = round(process_scores(get_scores) / length)
+low_score = min(get_scores)
+high_score = max(get_scores)
 
 
 print()
-print("Score Total:     ", all_scores)
-print("Number of Scores:   ", len(scores))
+print("Score Total:     ", process_scores(get_scores))
+print("Number of Scores:   ", len(process_scores))
 print("Average Score:   ", average)
 print("Low Score:    ", low_score)
 print("High Score:  ", high_score)
