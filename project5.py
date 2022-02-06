@@ -7,50 +7,47 @@ def display_welcome():
     print("")
 
 
-# makes scores a list, recieves input from user, checks for validity of entry
-# only gather 5 test scores
 def get_scores():
+    global scores
+    score = ""
     scores = []
-    while True:
+    while len(scores) < 5 and score != "x":
         score = input("Enter test score: ")
         if score == "x":
-            return scores
-        else:
+            break
+        try:
             score = int(score)
-            if score >= 0 and score <= 100:
-                scores.append(score)
-            else:
-                print(
-                    "Test score must be from 0 through 100."
-                    + "Score discarded. Try again."
-                )
+        except Exception:
+            print("Test Score must be an integer from 0 to 100 or 'x'.")
+    if score >= 0 and score <= 100:
+        scores.append(score)
+    else:
+        print(
+            "Test score must be from 0 through 100."
+            + "Score discarded. Please try again."
+        )
+    return scores
 
 
-# calculations for total, average, low, high and median
-# for statement to total the scores in the list
-# use the len() function to get the number of scores in the list
-# average = scores / length
-# median = #middle number of the 5 scores
 def process_scores(scores):
     all_scores = 0
-    for score in scores(1, scores() + 1):
+    for score in scores:
         all_scores += score
     return all_scores
 
 
-length = len(process_scores)
-average = round(process_scores(get_scores) / length)
-low_score = min(get_scores)
-high_score = max(get_scores)
-
-
-print()
-print("Score Total:     ", process_scores(get_scores))
-print("Number of Scores:   ", len(process_scores))
-print("Average Score:   ", average)
-print("Low Score:    ", low_score)
-print("High Score:  ", high_score)
-# print("Median Score:  ", median)
+def print_scores(scores):
+    length = len(scores)
+    average = round(process_scores(scores) / len(scores))
+    low_score = min(scores)
+    high_score = max(scores)
+    print()
+    print("Score Total:     ", process_scores(get_scores))
+    print("Number of Scores:   ", len(process_scores))
+    print("Average Score:   ", average)
+    print("Low Score:    ", low_score)
+    print("High Score:  ", high_score)
+    # print("Median Score:  ", median)
 
 
 def main():
