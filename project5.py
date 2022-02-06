@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import re
+import statistics
 
 # Establishes the name of the program, allows for exit of the program
 def display_welcome():
@@ -19,8 +20,9 @@ def get_scores():
             if re.match(r"^\d+\.\d+", score):
                 raise TypeError("")
             score = int(score)
-            if score >= 0 and score <= 100:
-                scores.append(score)
+            if not (score >= 0 and score <= 100):
+                raise ValueError("")
+            scores.append(score)
         except (TypeError, ValueError):
             print("Test Score must be an integer from 0 to 100 or 'x'.")
             print("Score discarded. Please try again.")
@@ -41,20 +43,21 @@ def print_scores(scores):
     low_score = min(scores)
     high_score = max(scores)
     print()
-    print("Score Total:     ", process_scores(get_scores))
-    print("Number of Scores:   ", len(process_scores))
-    print("Average Score:   ", average)
-    print("Low Score:    ", low_score)
-    print("High Score:  ", high_score)
-    # print("Median Score:  ", median)
+    print("Score Total: ", process_scores(scores))
+    print("Number of Scores: ", length)
+    print("Average Score: ", average)
+    print("Low Score: ", low_score)
+    print("High Score: ", high_score)
+    print("Median Score:  ", statistics.median(scores))
 
 
 def main():
     display_welcome()
     scores = get_scores()
     process_scores(scores)
+    print_scores(scores)
     print("")
-    print("Bye")
+    print("Thanks for playing! Bye!")
 
 
 # if started as the main module, call the main function
