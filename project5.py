@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import re
 
 # Establishes the name of the program, allows for exit of the program
 def display_welcome():
@@ -8,7 +9,6 @@ def display_welcome():
 
 
 def get_scores():
-    global scores
     score = ""
     scores = []
     while len(scores) < 5 and score != "x":
@@ -16,16 +16,15 @@ def get_scores():
         if score == "x":
             break
         try:
+            if re.match(r"^\d+\.\d+", score):
+                raise TypeError("")
             score = int(score)
-        except Exception:
+            if score >= 0 and score <= 100:
+                scores.append(score)
+        except (TypeError, ValueError):
             print("Test Score must be an integer from 0 to 100 or 'x'.")
-    if score >= 0 and score <= 100:
-        scores.append(score)
-    else:
-        print(
-            "Test score must be from 0 through 100."
-            + "Score discarded. Please try again."
-        )
+            print("Score discarded. Please try again.")
+            pass
     return scores
 
 
