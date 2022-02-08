@@ -33,7 +33,7 @@ def find_year(movie_list):
     year = int(input("Year"))
     for movie in movie_list:
         if movie[1] == year:
-            print(f"{movie[0]} was release in {year}")
+            print(f"{movie[0]} was released in {year}")
     print()
 
 
@@ -42,6 +42,7 @@ def display_menu():
     print("list - List all movies")
     print("add -  Add a movie")
     print("del -  Delete a movie")
+    print("find - Find movies by year")
     print("exit - Exit program")
     print()
 
@@ -76,13 +77,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-# Please complete the exercises in your textbook 6-2 page 200
-
-
-# use the list for th Test Scores program
-# add two more movies to the list
-# turn in your working py code3e
-# completed project
-# terminate at 5 places
