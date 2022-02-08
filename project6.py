@@ -7,7 +7,7 @@ def list(movie_list):
         return
     else:
         for i, movie in enumerate(movie_list, start=1):
-            print(f"{i}. {movie[0]} ({movie[1]} ({movie[2]}))")
+            print(f"{i}. {movie[0]} ({movie[1]}) ({movie[2]})")
         print()
 
 
@@ -29,6 +29,14 @@ def delete(movie_list):
         print(f"{movie[0]} was deleted.\n")
 
 
+def find_year(movie_list):
+    year = int(input("Year"))
+    for movie in movie_list:
+        if movie[1] == year:
+            print(f"{movie[0]} was release in {year}")
+    print()
+
+
 def display_menu():
     print("COMMAND MENU")
     print("list - List all movies")
@@ -43,6 +51,8 @@ def main():
         ["Monty Python and the Holy Grail", 1975, 9.95],
         ["On the Waterfront", 1954, 5.59],
         ["Cat on a Hot Tin Roof", 1958, 7.95],
+        ["Pulp Fiction", 1994, 8.99],
+        ["Stalingrad", 2013, 14.99],
     ]
 
     display_menu()
@@ -55,6 +65,8 @@ def main():
             add(movie_list)
         elif command.lower() == "del":
             delete(movie_list)
+        elif command.lower() == "find":
+            find_year(movie_list)
         elif command.lower() == "exit":
             break
         else:
