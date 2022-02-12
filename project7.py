@@ -13,8 +13,24 @@ s_list = [
     "Shashyk",
 ]
 p_list = [2.50, 3.49, 9.95, 5.99, 3.99, 1.99, 3.00, 7.99]
+print ("s_list p_list")
 
-
+for i in range (len(items)):
+    print(items[i]), " ", '$', price[i])
+    
+    
+for index, i in enumerate(items):
+    print (index,i)
+    
+    print ("Select item(s) from shopping list.")
+    for i in range(1):
+        index = int(input("Enter your item number: "))
+        print(items[index], "$",price[index])
+        
+    for items in price:
+        subtotal = price[index]
+        print("sub total")
+        print("$"+str(float(price[index])))
 # Create and print a Parallel Array that matches each item to its price from both lists.
 # should look like this... 1. Milk $2.99
 # Print the array list with its index numbers.
