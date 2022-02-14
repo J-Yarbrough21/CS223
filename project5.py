@@ -2,7 +2,7 @@
 import re
 import statistics
 
-# Establishes the name of the program, allows for exit of the program
+
 def display_welcome():
     print("The Test Scores Program by Jennifer Y. ")
     print("Enter 'x' to exit")
@@ -60,6 +60,5 @@ def main():
     print("Thanks for playing! Bye!")
 
 
-# if started as the main module, call the main function
 if __name__ == "__main__":
     main()
